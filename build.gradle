@@ -45,7 +45,13 @@ dependencies {
     compile('org.mariadb.jdbc:mariadb-java-client')
     /*세션 동기화를 위한 세팅*/
     /*compile('org.springframework.session:spring-session-jdbc')*/
-    testCompile('org.springframework.boot:spring-boot-starter-test')
+    testCompile('org.springframework.boot:spring-boot-starter-test'){
+        exclude module: 'junit'
+    }
+    testImplementation('org.junit.jupiter:junit-jupiter-api:5.2.0')
+    testCompile('org.junit.jupiter:junit-jupiter-params:5.2.0')
+    testRuntime('org.junit.jupiter:junit-jupiter-engine:5.2.0')
+
     /*스프링 시큐리티 테스트*/
     testCompile('org.springframework.security:spring-security-test')
 }
